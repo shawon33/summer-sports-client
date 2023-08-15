@@ -14,8 +14,8 @@ const Slider = () => {
                 <h1 className='text-5xl text-pink-600 pb-2'>WelCome To our Sports Academy Ltd.</h1>
                 <hr className='md:h-3 bg-red-200 sm:'/>
               
-                <progress className="progress w-56"></progress>
-                <progress className="progress w-56"></progress>
+                <progress className="progress w-56 "></progress>
+              
             
                 <p>Join to us for Learn Extracurricular Activities </p>
                 <p>For Good Health, Fresh Mind and Skill Development </p>
