@@ -20,6 +20,7 @@ const Navbar = () => {
 
     const items = <>
         <Link to='/' className="font-bold">Home</Link>
+        <Link to='/sports' className="font-bold">Sports</Link>
         {
             // user && <img className='my-auto' src={user.photoURL} style={{ height: 40 }} />
             user && <img className="w-12 my-auto rounded-full" src={user.photoURL} />
