@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Authprovider/AuthProvider";
+import Instractur from './../../Pages/Instractur/Instractur';
 
 
 const Navbar = () => {
@@ -21,6 +22,7 @@ const Navbar = () => {
     const items = <>
         <Link to='/' className="font-bold">Home</Link>
         <Link to='/sports' className="font-bold">Sports</Link>
+        <Link to='/instructor' className="font-bold">Instructor</Link>
         {
             // user && <img className='my-auto' src={user.photoURL} style={{ height: 40 }} />
             user && <img className="w-12 my-auto rounded-full" src={user.photoURL} />
