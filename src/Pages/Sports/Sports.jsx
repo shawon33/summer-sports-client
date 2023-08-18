@@ -14,7 +14,8 @@ const Sports = () => {
     }, [])
     return (
         <div>
-            <h1>this is sports</h1>
+            <h1 className='text-pink-600 text-center text-5xl font-bold my-4'>Our All Class</h1>
+            <hr className='p-3'></hr>
             <div className='grid grid-cols-1 md:grid-cols-3'>
                 {
                     sport.map(info => <SportsInfo

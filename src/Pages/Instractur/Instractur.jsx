@@ -13,8 +13,8 @@ const Instractur = () => {
 
     }, [])
     return (
-        <div>
-            {instructor.length}
+        <div className='my-12'>
+            
             {
                 instructor.map(info => <InstructorInfo
                     key={info._id}
