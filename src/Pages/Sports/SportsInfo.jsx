@@ -1,7 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../Authprovider/AuthProvider';
 
 const SportsInfo = ({ info }) => {
-    const { name, image, instructor,price } = info;
+    const {user} = useContext(AuthContext);
+    const { name, image, instructor, price } = info;
+    const navigate = useNavigate();
+    const location = useLocation();
+
+
+    const handleAddToSports = info => {
+      
+        if (user) {
+            fetch('http://localhost:5000/carts')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'sports added on the cart.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'Please login',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            })
+        }
+    }
     return (
         <div className=' sm:w-64 md:w-72 '>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -14,12 +54,12 @@ const SportsInfo = ({ info }) => {
                     <h2 className="card-title text-center ">Price: $$<span className='font-bold'>{price}</span></h2>
 
                     <div className="card-actions">
-                        <button className="btn btn-primary">Select</button>
+                        <button onClick={() => handleAddToSports(info)} className="btn btn-primary">Select</button>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
-  
+
 export default SportsInfo;
