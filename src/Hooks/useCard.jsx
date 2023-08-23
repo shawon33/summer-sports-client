@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
 import { AuthContext } from '../Authprovider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 
@@ -9,7 +9,7 @@ const useCard = () => {
         queryKey: ['sports', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/sports?email=${user?.email}`)
-            return res.data;
+            return res.json();
         },
     })
 

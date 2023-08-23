@@ -9,6 +9,9 @@ import Register from "../Authentication/Register/Register";
 import Class from "../Pages/Home/Class/Class";
 import Sports from "../Pages/Sports/Sports";
 import Instractur from "../Pages/Instractur/Instractur";
+import PrivateRoute from "../Authprovider/PrivateRoute";
+import Dashboard from "../LayOut/Dashboard";
+import MySelectedClass from "../Pages/DashBoard/MYclass/MySelectedClass";
 
   
 const router = createBrowserRouter([
@@ -35,8 +38,18 @@ const router = createBrowserRouter([
         {
           path:'instructor',
           element:<Instractur></Instractur>
-        }
+        },
       ]
     },
+    {
+      path:"dashboard",
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+          path:"myClass",
+          element:<MySelectedClass></MySelectedClass>
+        }
+      ]
+    }
   ]);
   export default router;
