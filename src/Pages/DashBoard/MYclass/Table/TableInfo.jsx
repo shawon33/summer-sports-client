@@ -1,15 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TableInfo = ({ info }) => {
-    const { name, image, price,email, _id} = info;
+    const { name, image, price, email, _id } = info;
     console.log(info);
     return (
-        <div>
-            <th>
-                <label>
-                    <input type="checkbox" className="checkbox" />
-                </label>
-            </th>
+        <div className='text-xl'>
+           
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
@@ -19,7 +16,7 @@ const TableInfo = ({ info }) => {
                     </div>
                     <div>
                         <div className="font-bold">{name}</div>
-                   
+
                     </div>
                 </div>
             </td>
@@ -30,7 +27,9 @@ const TableInfo = ({ info }) => {
                 <p>{email}</p>
             </td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link >
+                    <button className="btn btn-ghost btn-xs text-red-400 text-2xl">Delete</button>
+                </Link>
             </th>
         </div>
     );
