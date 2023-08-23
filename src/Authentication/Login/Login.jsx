@@ -45,15 +45,14 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
-                const loggedInUser = result.user;
-                console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                const googleUser = result.user;
+                const User = { name: googleUser.displayName, email: googleUser.email }
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
                     },
-                    body: JSON.stringify(saveUser)
+                    body: JSON.stringify(User)
                 })
                     .then(res => res.json())
                     .then(() => {
