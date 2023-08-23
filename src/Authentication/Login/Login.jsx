@@ -2,12 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Authprovider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
-
+import { FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -42,6 +41,26 @@ const Login = () => {
             })
 
     }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
+            })
+    }
     // min-h-screen
     return (
         <div>
@@ -70,11 +89,16 @@ const Login = () => {
                             <br />
                             <button className="btn btn-outline btn-success" type="submit">Login</button>
                             <p className='my-4 text-center'> <Link className='text-orange-600 font-bold' to="/register">Join us with Register here </Link> </p>
-
                         </form>
+                        <div className="w-full text-center my-4">
+                            <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
+                                <FaGoogle></FaGoogle>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

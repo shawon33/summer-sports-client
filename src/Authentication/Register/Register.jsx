@@ -18,19 +18,32 @@ const Register = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        reset()
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Your success message goes here',
-                        });
-                        navigate('/')
+                        const User = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(User)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'User created successfully.',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/');
+                            }
+                        })
                     })
             })
             .catch(error => console.log(error))
     }
-
-
 
     return (
         <>
