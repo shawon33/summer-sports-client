@@ -11,7 +11,7 @@ const Instructor = () => {
             .then(data => {
                 const slicedData = data.slice(0, 6);
                 setInstructor(slicedData);
-                console.log(slicedData);
+            
 
             })
 

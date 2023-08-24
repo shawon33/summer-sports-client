@@ -12,6 +12,7 @@ import Instractur from "../Pages/Instractur/Instractur";
 import PrivateRoute from "../Authprovider/PrivateRoute";
 import Dashboard from "../LayOut/Dashboard";
 import MySelectedClass from "../Pages/DashBoard/MYclass/MySelectedClass";
+import AllUser from "../Pages/DashBoard/ALLUser/AllUser";
 
   
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         {
           path:"myClass",
           element:<MySelectedClass></MySelectedClass>
+        },
+        {
+          path:'users',
+          element:<AllUser></AllUser>
         }
       ]
     }

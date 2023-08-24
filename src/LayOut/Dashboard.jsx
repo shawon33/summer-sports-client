@@ -2,7 +2,12 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
 import { FaWallet, FaCalendarAlt, FaHome, FaDribbble } from 'react-icons/fa';
+
 const Dashboard = () => {
+
+    
+    // const instructor = true
+    const admin = true
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -16,9 +21,25 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full  text-base-content">
                     {/* Sidebar content here */}
-                    <li><NavLink to="/dashboard/myClass"><FaDribbble></FaDribbble>my class</NavLink></li>
+{/* 
+                    {
+                        instructor && <p>you</p>
+                    } */}
+
+                    {
+                        admin ? <>
+                            <li><NavLink to="/dashboard/home"><FaHome></FaHome>Admin Home</NavLink></li>
+                            <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
+                            <li><NavLink to="/dashboard/users"><FaWallet></FaWallet>Users</NavLink></li>
+                        </> : <>
+                            <li><NavLink to="/dashboard/myClass"><FaDribbble></FaDribbble>my class</NavLink></li>
+                            <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
+                            <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li></>
+                    }
+
+                    {/* <li><NavLink to="/dashboard/myClass"><FaDribbble></FaDribbble>my class</NavLink></li>
                     <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li> */}
 
 
                     <div className="divider"></div>

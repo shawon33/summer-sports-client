@@ -10,7 +10,7 @@ const Extraction = () => {
             .then(data => {
                 const slicedData = data.slice(0, 6);
                 setClass(slicedData);
-                console.log(slicedData);
+               
             })
 
     }, [])
