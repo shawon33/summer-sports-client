@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 
 const MySelectedClass = () => {
     const [Sports, refetch] = useCard()
+  
     const total = Sports.reduce((sum, money) => money.price + sum, 0);
     const handleDelete = sport => {
         fetch(`http://localhost:5000/sports/${sport._id}`, {
