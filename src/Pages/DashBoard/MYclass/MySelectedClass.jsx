@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 
 const MySelectedClass = () => {
     const [Sports, refetch] = useCard()
+    console.log(Sports);
   
     const total = Sports.reduce((sum, money) => money.price + sum, 0);
     const handleDelete = sport => {
