@@ -15,6 +15,7 @@ import AllUser from "../Pages/DashBoard/ALLUser/AllUser";
 import PrivateRoute from "./PrivateRoute";
 import ManageItem from "../Pages/DashBoard/ManageItem/ManageItem";
 import AdminRoute from "./AdminRoute";
+import AdminHome from "../Pages/DashBoard/ManageItem/AdminHome";
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: 'manageItems',
         element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
+      },
+      {
+        path:'adminHome',
+        element:<AdminHome></AdminHome>
       }
     ]
   }

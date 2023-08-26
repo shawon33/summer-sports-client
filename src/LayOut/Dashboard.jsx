@@ -1,6 +1,6 @@
 
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt,FaTrain, FaHome, FaUtensils, FaBook, FaUsers } from 'react-icons/fa';
 
 
 import useAdmin from '../Hooks/useAdmin';
@@ -29,8 +29,8 @@ const Dashboard = () => {
                     {/* Sidebar content here */}
                     {
                         admin ? <>
-                            <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet> Manage Items</NavLink></li>
+                            <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome>Admin</NavLink></li>
+                            <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet>Manage Class</NavLink></li>
                             <li><NavLink to="/dashboard/users"><FaUsers></FaUsers>Manage User</NavLink></li>
 
                         </> : <>
@@ -44,11 +44,7 @@ const Dashboard = () => {
                             </li>
                         </>
                     }
-                    {/* 
-                    {
-                        instructor && <p>you</p>
-                    } */}
-
+                  
                     {/* {
                         admin ? <>
                             <li><NavLink to="/dashboard/home"><FaHome></FaHome>Admin Home</NavLink></li>
@@ -60,14 +56,9 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li></>
                     } */}
 
-                    {/* <li><NavLink to="/dashboard/myClass"><FaDribbble></FaDribbble>my class</NavLink></li>
-                    <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li> */}
-
-
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                    <li><NavLink to="/sports">All Sports</NavLink></li>
+                    <li><NavLink to="/sports"><FaTrain></FaTrain> Sports</NavLink></li>
                 </ul>
 
             </div>
