@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 import ManageItem from "../Pages/DashBoard/ManageItem/ManageItem";
 import AdminRoute from "./AdminRoute";
 import AdminHome from "../Pages/DashBoard/ManageItem/AdminHome";
+import Payment from "../Pages/DashBoard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -54,9 +55,15 @@ const router = createBrowserRouter([
         element: <MySelectedClass></MySelectedClass>
       },
       {
-        path: 'users',
-        element: <AllUser></AllUser>
+        path:'payment',
+        element:<Payment></Payment>
       },
+      // admin route
+      {
+        path: 'users',
+        element: <AdminRoute><AllUser></AllUser></AdminRoute>
+      },
+    
       {
         path: 'manageItems',
         element: <AdminRoute><ManageItem></ManageItem></AdminRoute>

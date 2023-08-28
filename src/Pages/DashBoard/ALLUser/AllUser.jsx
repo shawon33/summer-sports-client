@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import useAxios from '../../../Hooks/useAxios';
 
 const AllUser = () => {
-    const [axiosSecure]= useAxios()
+    const [axiosSecure] = useAxios()
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await axiosSecure.get('/users')
         return res.data;
@@ -14,6 +14,22 @@ const AllUser = () => {
 
     const handleToCreateAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now`,
+                        text: 'Your success message goes here',
+                    });
+                }
+            })
+    }
+    const handleToCreateInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -42,6 +58,7 @@ const AllUser = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -51,6 +68,9 @@ const AllUser = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>{user.role === 'instructor' ? 'instructor' :
+                                    <button onClick={() =>handleToCreateInstructor(user)} className="btn btn-ghost bg-yellow-600  text-white"><FaUserShield></FaUserShield></button>
+                                }</td>
                                 <td>{user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleToCreateAdmin(user)} className="btn btn-ghost bg-yellow-600  text-white"><FaUserShield></FaUserShield></button>
                                 }</td>
