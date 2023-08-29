@@ -37,6 +37,7 @@ const Dashboard = () => {
                                 </>
                                 :
                                 <>
+                                {/* user */}
                                     <li><NavLink to="/dashboard/myClass"><FaHome></FaHome>My Selected Class</NavLink></li>
                                     <li><NavLink to="/dashboard"><FaWallet></FaWallet> Payment History</NavLink></li>
                                     <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li>

@@ -17,7 +17,7 @@ const useCard = () => {
         // enabled: !!user?.email && !!localStorage.getItem('access-token'),
         queryFn: async () => {
             const res = await axiosSecure(`/sports?email=${user?.email}`)
-            console.log("axios", res);
+            // console.log("axios", res);
             return res.data;
         }
         //    queryFn: async () => {
