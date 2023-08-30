@@ -6,7 +6,7 @@ import useInstructor from '../Hooks/useInstructor';
 const Dashboard = () => {
  
     const [admin] = useAdmin();
-    const [instructor] = useInstructor();
+    const [instructors] = useInstructor();
 
     return (
         <div className="drawer lg:drawer-open">
@@ -24,11 +24,11 @@ const Dashboard = () => {
                     {
                         admin ?
                             <>
-                                <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome>Admin</NavLink></li>
+                                <li><NavLink to="/dashboard/home"><FaHome></FaHome>Admin</NavLink></li>
                                 <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet>Manage Class</NavLink></li>
                                 <li><NavLink to="/dashboard/users"><FaUsers></FaUsers>Manage User</NavLink></li></>
                             :
-                            instructor ?
+                            instructors ?
                                 <>
                                     <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome>instructor</NavLink></li>
                                     <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet>Manage Class</NavLink></li>
@@ -39,7 +39,7 @@ const Dashboard = () => {
                                 <>
                                 {/* user */}
                                     <li><NavLink to="/dashboard/myClass"><FaHome></FaHome>My Selected Class</NavLink></li>
-                                    <li><NavLink to="/dashboard"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li><NavLink to="/dashboard/paymentPage"><FaWallet></FaWallet> Payment History</NavLink></li>
                                     <li><NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart</NavLink></li>
                                 </>}
 

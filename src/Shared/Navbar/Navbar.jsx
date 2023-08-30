@@ -27,7 +27,8 @@ const Navbar = () => {
         {
             // user && <img className='my-auto' src={user.photoURL} style={{ height: 40 }} />
             user && <>
-                <Link to='/dashboard/myClass' className="font-bold">Dashboard</Link>
+                {/* {admin ? <></> : instructors ? <><h1>welcome</h1></> :} */}
+                <Link to='/dashboard/home' className="font-bold">Dashboard</Link>
                 <img className="w-12 my-auto rounded-full" src={user.photoURL} /></>
 
         }

@@ -6,7 +6,6 @@ import Main from "../LayOut/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
-import Class from "../Pages/Home/Class/Class";
 import Sports from "../Pages/Sports/Sports";
 import Instractur from "../Pages/Instractur/Instractur";
 import Dashboard from "../LayOut/Dashboard";
@@ -15,8 +14,9 @@ import AllUser from "../Pages/DashBoard/ALLUser/AllUser";
 import PrivateRoute from "./PrivateRoute";
 import ManageItem from "../Pages/DashBoard/ManageItem/ManageItem";
 import AdminRoute from "./AdminRoute";
-import AdminHome from "../Pages/DashBoard/ManageItem/AdminHome";
+import AdminHome from "../Pages/DashBoard/Home/AdminHome";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import PaymentHistory from "../Pages/DashBoard/PaymentPage/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -58,6 +58,10 @@ const router = createBrowserRouter([
         path:'payment',
         element:<Payment></Payment>
       },
+      {
+        path:'paymentPage',
+        element:<PaymentHistory></PaymentHistory>
+      },
       // admin route
       {
         path: 'users',
@@ -65,13 +69,14 @@ const router = createBrowserRouter([
       },
     
       {
-        path: 'manageItems',
+        path:'manageItems',
         element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
       },
       {
-        path:'adminHome',
+        path:'home',
         element:<AdminHome></AdminHome>
       }
+     
     ]
   }
 ]);

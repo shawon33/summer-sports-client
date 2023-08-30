@@ -2,19 +2,24 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Authprovider/AuthProvider';
+import useInstructor from '../../Hooks/useInstructor';
+import useAdmin from '../../Hooks/useAdmin';
 
 const SportsInfo = ({ info }) => {
     const { user } = useContext(AuthContext);
-    const { name, image, instructor, price,_id } = info;
+    const { name, image, instructor, price, _id } = info;
     const navigate = useNavigate();
     const location = useLocation();
+    const [admin] = useAdmin();
+    const [instructors] = useInstructor();
+
 
 
     const handleAddToSports = info => {
         console.log(info);
 
         if (user && user.email) {
-            const sports = {sportsId: _id, name, image, price, email: user.email}
+            const sports = { sportsId: _id, name, image, price, email: user.email }
             fetch('http://localhost:5000/sports',
                 {
                     method: 'POST',
@@ -63,7 +68,11 @@ const SportsInfo = ({ info }) => {
                     <h2 className="card-title text-center ">Price: $$<span className='font-bold'>{price}</span></h2>
 
                     <div className="card-actions">
-                        <button onClick={() => handleAddToSports(info)} className="btn btn-primary">Select</button>
+                        {/* <button onClick={() => handleAddToSports(info)} className="btn btn-primary">Select</button> */}
+                        {
+                            admin ? <> <h1>Wlcome</h1></> : instructors ? <><h1>welcome</h1></> : <button onClick={() => handleAddToSports(info)} className="btn btn-primary">Select</button>
+                        }
+
                     </div>
                 </div>
             </div>

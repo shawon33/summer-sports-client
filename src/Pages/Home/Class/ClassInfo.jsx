@@ -1,9 +1,13 @@
 
 import React from 'react';
+import useAdmin from './../../../Hooks/useAdmin';
+import useInstructor from '../../../Hooks/useInstructor';
 
 
 const ClassInfo = ({ info }) => {
     const { name, image, instructor } = info;
+    const [admin] = useAdmin();
+    const [instructors] = useInstructor();
 
     return (
         <>
@@ -16,7 +20,10 @@ const ClassInfo = ({ info }) => {
                             <p className="py-6 text-3xl font-bold">Instructor: {instructor}</p>
                             <p className="py-6 font-bold text-yellow-100">Sports promote physical fitness and overall well-being by encouraging regular exercise and physical activity. Engaging in sports helps to improve cardiovascular health, develop muscular strength and endurance, and enhance flexibility and coordination. </p>
                             <p className='py-6 font-bold'>Rating: 4.5</p>
-                            <button className="btn btn-primary">Select</button>
+
+                            {
+                                admin ? <> <h1>Wlcome</h1></> :instructors ?<><h1>welcome</h1></> : <button className="btn btn-primary " >Select</button>
+                            }
                         </div>
                     </div>
                 </div>
