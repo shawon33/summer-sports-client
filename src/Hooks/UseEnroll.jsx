@@ -13,7 +13,7 @@ const UseEnroll = () => {
         queryFn: async () => {
             const res = await axiosSecure(`/enrollClass?email=${user?.email}`)
             // console.log("axios", res);
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         }
     })

@@ -17,7 +17,7 @@ import AdminRoute from "./AdminRoute";
 import AdminHome from "../Pages/DashBoard/Home/AdminHome";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentPage/PaymentHistory";
-// import EnrollClass from "../Pages/DashBoard/EnrollClass/EnrollClass";
+import EnrollClass from "../Pages/DashBoard/EnrollClass/EnrollClass";
 
 
 const router = createBrowserRouter([
@@ -63,10 +63,10 @@ const router = createBrowserRouter([
         path:'paymentPage',
         element:<PaymentHistory></PaymentHistory>
       },
-      // {
-      //   path:"enrollClass",
-      //   element:<EnrollClass></EnrollClass>
-      // },
+      {
+        path:"enrollClass",
+        element:<EnrollClass></EnrollClass>
+      },
       // admin route
       {
         path: 'users',

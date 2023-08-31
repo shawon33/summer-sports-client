@@ -86,7 +86,8 @@ const CheckoutForm = ({ price }) => {
         Quantity: Sports.length,
         paymentId: Sports.map(res => res._id),
         classId: Sports.map(res => res.sportsId),
-        paymentClass: Sports.map(res => res.name)
+        paymentClass: Sports.map(res => res.name),
+        item:Sports
       }
       axiosSecure.post("/payments",payment )
         .then(res => {
