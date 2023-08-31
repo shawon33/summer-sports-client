@@ -7,7 +7,7 @@ import usePayyment from '../../../Hooks/usePayyment';
 
 const PaymentHistory = () => {
     const[payment,refetch] = usePayyment()
-    console.log(payment);
+   
     const { user } = useContext(AuthContext)
     // const [axiosSecure] = useAxios()
     // const [history, setPayment] = useState()
@@ -61,7 +61,7 @@ const PaymentHistory = () => {
                                 <td className="text-end">${sport.Quantity}</td>
                                 <td className="text-end">${sport.price}</td>
                                 <td className="text-end">${sport.date}</td>
-                            </tr>)
+                            </tr>).reverse()
                         }
                     </tbody>
                 </table>

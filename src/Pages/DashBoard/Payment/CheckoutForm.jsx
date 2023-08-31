@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxios from '../../../Hooks/useAxios';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
 import useCard from '../../../Hooks/useCard';
+import usePayyment from '../../../Hooks/usePayyment';
 // import './css/CheakOutForm.css'
 
 
@@ -17,6 +18,7 @@ const CheckoutForm = ({ price }) => {
   const [transactionId, setTransactionId] = useState();
   const [Sports] = useCard()
   // console.log(Sports);
+  const[refetch] = usePayyment()
 
 
 
@@ -29,7 +31,7 @@ const CheckoutForm = ({ price }) => {
           setClientSecret(res.data.clientSecret);
         })
     }
-  }, [price, axiosSecure])
+  }, [price, axiosSecure,refetch])
 
   const handleSubmit = async (event) => {
     event.preventDefault();

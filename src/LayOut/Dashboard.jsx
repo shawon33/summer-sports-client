@@ -40,6 +40,7 @@ const Dashboard = () => {
                                 {/* user */}
                                     <li><NavLink to="/dashboard/myClass"><FaHome></FaHome>My Selected Class</NavLink></li>
                                     <li><NavLink to="/dashboard/paymentPage"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li><NavLink to="/dashboard/enrollClass"><FaWallet></FaWallet> Enroll Class</NavLink></li>
                                 </>}
 
                     <div className="divider"></div>
