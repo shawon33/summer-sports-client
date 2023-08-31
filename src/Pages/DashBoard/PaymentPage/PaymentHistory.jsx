@@ -2,20 +2,23 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxios from '../../../Hooks/useAxios';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
 import PaymentInfo from './PaymentInfo';
+import usePayyment from '../../../Hooks/usePayyment';
 
 
 const PaymentHistory = () => {
+    const[payment,refetch] = usePayyment()
+    console.log(payment);
     const { user } = useContext(AuthContext)
-    const [axiosSecure] = useAxios()
-    const [history, setPayment] = useState()
-    useEffect(() => {
-        axiosSecure(`/payment?email=${user?.email}`)
-            .then(res => {
-                console.log(res.data);
-                setPayment(res.data)
-            })
+    // const [axiosSecure] = useAxios()
+    // const [history, setPayment] = useState()
+    // useEffect(() => {
+    //     axiosSecure(`/payment?email=${user?.email}`)
+    //         .then(res => {
+    //             console.log(res.data);
+    //             setPayment(res.data)
+    //         })
 
-    }, [])
+    // }, [])
 
 
     return (
@@ -36,7 +39,7 @@ const PaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
-                            history.map((sport, index) => <tr
+                            payment.map((sport, index) => <tr
                                 key={sport._id}
                             >
                                 <td>

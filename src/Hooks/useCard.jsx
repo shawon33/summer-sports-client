@@ -20,12 +20,6 @@ const useCard = () => {
             // console.log("axios", res);
             return res.data;
         }
-        //    queryFn: async () => {
-        //     const res = await fetch(`http://localhost:5000/sports?email=${user?.email}`, { headers: {
-        //         authorized: `bearer ${token}`
-        //     }})
-        //     return res.json();
-        // },
     })
     return [Sports, refetch]
 
