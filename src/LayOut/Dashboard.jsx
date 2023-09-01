@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { FaShoppingCart, FaWallet,  FaTrain, FaHome,  FaUsers } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet,FaTrain, FaHome,  FaUsers, FaAddressBook } from 'react-icons/fa';
 import useAdmin from '../Hooks/useAdmin';
 import useInstructor from '../Hooks/useInstructor';
 
@@ -30,9 +30,9 @@ const Dashboard = () => {
                             :
                             instructors ?
                                 <>
-                                    <li><NavLink to="/dashboard/adminHome"><FaHome></FaHome>instructor</NavLink></li>
-                                    <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet>Manage Class</NavLink></li>
-                                    <li><NavLink to="/dashboard/users"><FaUsers></FaUsers>Manage User</NavLink></li>
+
+                                    <li><NavLink to="/dashboard/addClass"><FaAddressBook></FaAddressBook>Add Class</NavLink></li>
+                                    {/* <li><NavLink to="/dashboard/myClass"><FaFootball></FaFootball>Manage User</NavLink></li> */}
 
                                 </>
                                 :
@@ -40,7 +40,7 @@ const Dashboard = () => {
                                 {/* user */}
                                     <li><NavLink to="/dashboard/myClass"><FaHome></FaHome>My Selected Class</NavLink></li>
                                     <li><NavLink to="/dashboard/paymentPage"><FaWallet></FaWallet> Payment History</NavLink></li>
-                                    <li><NavLink to="/dashboard/enrollClass"><FaWallet></FaWallet> Enroll Class</NavLink></li>
+                                    <li><NavLink to="/dashboard/enrollClass"><FaWallet></FaWallet>My Enroll Class</NavLink></li>
                                 </>}
 
                     <div className="divider"></div>

@@ -18,6 +18,8 @@ import AdminHome from "../Pages/DashBoard/Home/AdminHome";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentPage/PaymentHistory";
 import EnrollClass from "../Pages/DashBoard/EnrollClass/EnrollClass";
+import AddClass from "../Pages/DashBoard/Instructor/AddClass";
+import InstructorRoute from "./InstructorRoute";
 
 
 const router = createBrowserRouter([
@@ -56,32 +58,39 @@ const router = createBrowserRouter([
         element: <MySelectedClass></MySelectedClass>
       },
       {
-        path:'payment',
-        element:<Payment></Payment>
+        path: 'payment',
+        element: <Payment></Payment>
       },
       {
-        path:'paymentPage',
-        element:<PaymentHistory></PaymentHistory>
+        path: 'paymentPage',
+        element: <PaymentHistory></PaymentHistory>
       },
       {
-        path:"enrollClass",
-        element:<EnrollClass></EnrollClass>
+        path: "enrollClass",
+        element: <EnrollClass></EnrollClass>
+      },
+
+      // Instructor
+      {
+        path:'addClass',
+        element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
       },
       // admin route
       {
         path: 'users',
         element: <AdminRoute><AllUser></AllUser></AdminRoute>
       },
-    
+
       {
-        path:'manageItems',
+        path: 'manageItems',
         element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
       },
+      // all user home
       {
-        path:'home',
-        element:<AdminHome></AdminHome>
+        path: 'home',
+        element: <AdminHome></AdminHome>
       }
-     
+
     ]
   }
 ]);
