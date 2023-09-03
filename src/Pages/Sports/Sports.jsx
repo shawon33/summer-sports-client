@@ -7,7 +7,7 @@ const Sports = () => {
     const [menu, loading] = useClass()
  
     // useEffect(() => {
-    //     fetch('https://summer-sports-shawon33.vercel.app/class')
+    //     fetch('http://localhost:5000class')
     //         .then(res => res.json())
     //         .then(data => {
     //             setSports(data);

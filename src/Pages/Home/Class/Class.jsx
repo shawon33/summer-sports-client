@@ -7,7 +7,7 @@ const Class = () => {
     const [infoClass, setClass] = useState([]);
 
     useEffect(() => {
-        fetch('https://summer-sports-shawon33.vercel.app/class')
+        fetch('http://localhost:5000/class')
             .then(res => res.json())
             .then(data => {
                 const slicedData = data.slice(0, 6);
