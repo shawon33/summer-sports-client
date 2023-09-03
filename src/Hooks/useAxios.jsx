@@ -4,11 +4,11 @@ import { AuthContext } from '../Authprovider/AuthProvider';
 import axios from 'axios';
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://summer-sports-shawon33.vercel.app',
 });
 
 const useAxios = () => {
-    const { logOut } = useContext(AuthContext);
+    const {logOut}= useContext(AuthContext)
     const navigate = useNavigate();
 
 
@@ -27,12 +27,11 @@ const useAxios = () => {
             async (error) => {
                 if (error.response && (error.response.status === 401 || error.response.status === 403)) {
                     await logOut();
-                    navigate('/login');
                 }
                 return Promise.reject(error);
             }
         );
-    }, [logOut, navigate]);
+    }, [logOut, navigate,axiosSecure]);
     return [axiosSecure];
 };
 

@@ -13,7 +13,7 @@ const AllUser = () => {
 
 
     const handleToCreateAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://summer-sports-shawon33.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -29,7 +29,7 @@ const AllUser = () => {
             })
     }
     const handleToCreateInstructor = user => {
-        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+        fetch(`https://summer-sports-shawon33.vercel.app/users/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -69,7 +69,7 @@ const AllUser = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'instructor' ? 'instructor' :
-                                    <button onClick={() =>handleToCreateInstructor(user)} className="btn btn-ghost bg-yellow-600  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleToCreateInstructor(user)} className="btn btn-ghost bg-yellow-600  text-white"><FaUserShield></FaUserShield></button>
                                 }</td>
                                 <td>{user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleToCreateAdmin(user)} className="btn btn-ghost bg-yellow-600  text-white"><FaUserShield></FaUserShield></button>

@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { FaShoppingCart, FaWallet,FaTrain, FaHome,  FaUsers, FaAddressBook } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet,FaTrain, FaHome,  FaUsers, FaAddressBook, FaClipboard } from 'react-icons/fa';
 import useAdmin from '../Hooks/useAdmin';
 import useInstructor from '../Hooks/useInstructor';
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
                                 <>
 
                                     <li><NavLink to="/dashboard/addClass"><FaAddressBook></FaAddressBook>Add Class</NavLink></li>
-                                    {/* <li><NavLink to="/dashboard/myClass"><FaFootball></FaFootball>Manage User</NavLink></li> */}
+                                    <li><NavLink to="/dashboard/instructorClass"><FaClipboard/>  MY Class</NavLink></li>
 
                                 </>
                                 :

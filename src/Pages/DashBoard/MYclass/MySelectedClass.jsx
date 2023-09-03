@@ -12,8 +12,10 @@ const MySelectedClass = () => {
     console.log(Sports);
   
     const total = Sports.reduce((sum, money) => money.price + sum, 0);
+    // const number = parseInt(total)
+    // console.log(number);
     const handleDelete = sport => {
-        fetch(`http://localhost:5000/sports/${sport._id}`, {
+        fetch(`https://summer-sports-shawon33.vercel.app/sports/${sport._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

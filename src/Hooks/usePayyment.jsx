@@ -7,7 +7,7 @@ const usePayyment = () => {
     const [axiosSecure] = useAxios();
     const {user,loading} =useContext(AuthContext)
 
-    const { refetch, data: payment = [] } = useQuery({
+    const { refetch, data: payment = [],} = useQuery({
         queryKey: ['payment', user?.email],
         enabled: !loading,
         queryFn: async () => {
@@ -17,6 +17,6 @@ const usePayyment = () => {
             return res.data;
         }
     })
-    return [payment, refetch]
+    return [payment,loading, refetch]
 }
 export default usePayyment;

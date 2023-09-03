@@ -6,7 +6,7 @@ const Instructor = () => {
     const [instructor, setInstructor] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/instructor')
+        fetch('https://summer-sports-shawon33.vercel.app/instructor')
             .then(res => res.json())
             .then(data => {
                 const slicedData = data.slice(0, 6);

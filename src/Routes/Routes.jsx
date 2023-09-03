@@ -20,12 +20,15 @@ import PaymentHistory from "../Pages/DashBoard/PaymentPage/PaymentHistory";
 import EnrollClass from "../Pages/DashBoard/EnrollClass/EnrollClass";
 import AddClass from "../Pages/DashBoard/Instructor/AddClass";
 import InstructorRoute from "./InstructorRoute";
+import MyClass from "../Pages/DashBoard/Instructor/MyClass";
+import Error from "../Pages/Error/Error";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: '/',
@@ -47,11 +50,12 @@ const router = createBrowserRouter([
         path: 'instructor',
         element: <Instractur></Instractur>
       },
-    ]
+    ],
   },
   {
     path: "dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "myClass",
@@ -74,6 +78,10 @@ const router = createBrowserRouter([
       {
         path:'addClass',
         element:<InstructorRoute><AddClass></AddClass></InstructorRoute>
+      },
+      {
+        path:'instructorClass',
+        element:<InstructorRoute><MyClass></MyClass></InstructorRoute>
       },
       // admin route
       {

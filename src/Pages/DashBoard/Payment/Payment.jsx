@@ -13,6 +13,7 @@ const Payment = () => {
     const [Sports] = useCard()
     const total = Sports.reduce((sum, money) => money.price + sum, 0);
     const price = parseFloat(total.toFixed(2))
+    console.log(price);
 
     return (
         <div className='w-full'>
