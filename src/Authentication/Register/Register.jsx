@@ -19,7 +19,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const User = { name: data.name, email: data.email }
-                        fetch('http://localhost:5000users', {
+                        fetch('https://summer-sports-shawon33.vercel.appusers', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

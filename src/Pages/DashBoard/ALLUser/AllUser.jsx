@@ -13,7 +13,7 @@ const AllUser = () => {
 
 
     const handleToCreateAdmin = user => {
-        fetch(`http://localhost:5000users/admin/${user._id}`, {
+        fetch(`https://summer-sports-shawon33.vercel.appusers/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -29,7 +29,7 @@ const AllUser = () => {
             })
     }
     const handleToCreateInstructor = user => {
-        fetch(`http://localhost:5000users/instructor/${user._id}`, {
+        fetch(`https://summer-sports-shawon33.vercel.appusers/instructor/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

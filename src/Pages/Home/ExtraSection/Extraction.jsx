@@ -5,7 +5,7 @@ const Extraction = () => {
     const [extra, setClass] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/extrasection')
+        fetch('https://summer-sports-shawon33.vercel.app/extrasection')
             .then(res => res.json())
             .then(data => {
                 const slicedData = data.slice(0, 6);
