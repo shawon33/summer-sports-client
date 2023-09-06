@@ -20,7 +20,7 @@ const SportsInfo = ({ info }) => {
 
         if (user && user.email) {
             const sports = { sportsId: _id, name, image, price, email: user.email }
-            fetch('https://summer-sports-shawon33.vercel.appsports',
+            fetch('https://summer-sports-shawon33.vercel.app/sports',
                 {
                     method: 'POST',
                     headers: {

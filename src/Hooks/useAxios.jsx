@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const axiosSecure = axios.create({
     baseURL: 'https://summer-sports-shawon33.vercel.app',
+    // https://summer-sports-shawon33.vercel.app/
+    
 });
 
 const useAxios = () => {

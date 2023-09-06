@@ -6,17 +6,17 @@ import useClass from "../../../Hooks/useClass";
 
 const Class = () => {
     const [infoClass, setClass] = useState([]);
-    const [menu, loading] = useClass()
+    // const [menu, loading] = useClass()
 
     useEffect(() => {
-        // fetch('https://summer-sports-shawon33.vercel.app/class')
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         const slicedData = data.slice(0, 6);
-        //         setClass(slicedData);
-        //     })
-        const fool = menu.slice(0, 6);
-        setClass(fool)
+        fetch('https://summer-sports-shawon33.vercel.app/class')
+            .then(res => res.json())
+            .then(data => {
+                const slicedData = data.slice(0, 6);
+                setClass(slicedData);
+            })
+        // const fool = menu.slice(0, 6);
+        // setClass(fool)
 
     }, [])
 
